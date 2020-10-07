@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: [:index]
+  get :current, to: 'users#current'
 end

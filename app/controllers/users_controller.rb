@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     respond_with @users
   end
 
+  def current
+    respond_with current_user
+  end
+
   private
 
   def respond_with(resource, _opts = {})
@@ -15,5 +19,4 @@ class UsersController < ApplicationController
       data: UserSerializer.new(resource).serializable_hash[:data]
     }
   end
-
 end

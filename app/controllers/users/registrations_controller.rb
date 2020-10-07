@@ -5,10 +5,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
 
+  def user_params
+    params.require(:user).permit(:email, :password, :username)
+  end
+
   def respond_with(resource, _opts = {})
     render json: {
-      status: {code: 200, message: 'Logged in successfully.'},
-      data: UserSerializer.new(resource).serializable_hash[:data][:attributes]
+      data: UserSerializer.new(resource).serializable_hash[:data]
     }
   end
 end
