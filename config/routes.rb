@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   },
   controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    confirmations: 'users/confirmations'
   }
   resources :users, only: [:index]
   get :current, to: 'users#current'
